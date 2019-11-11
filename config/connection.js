@@ -1,5 +1,9 @@
+var express = require("express");
+var path = require("path");
 var mysql = require("mysql");
 var connection;
+var PORT = process.env.PORT || 8080;
+/* SQL DB CONNECT AND EXPORT CONNECTION */
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -11,11 +15,12 @@ if (process.env.JAWSDB_URL) {
     database: "test_data"
   });
 }
-console.log("connected to database")
-connection.config.typeCast = function(field, next) {
-  if (field.type == "TINY" && field.length == 1) {
-    return field.string() == "1"; // 1 = true, 0 = false
-  }
-  return next();
-};
+// connection.connect(function(err) {
+//     if (err) {
+//       console.error("error connecting: " + err.stack);
+//       return;
+//     }
+//     console.log("connected as id " + connection.threadId);
+//   });
 module.exports = connection;
+

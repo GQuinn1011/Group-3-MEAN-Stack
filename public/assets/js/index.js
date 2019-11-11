@@ -1,4 +1,4 @@
-$(function () {
+$(() => {
     var FADE_TIME = 150; // ms
     var TYPING_TIMER_LENGTH = 400; // ms
     var COLORS = [
@@ -12,7 +12,6 @@ $(function () {
     var $usernameInput = $('.usernameInput'); // Input for username
     var $messages = $('.messages'); // Messages area
     var $inputMessage = $('.inputMessage'); // Input message input box
-
     var $loginPage = $('.login.page'); // The login page
     var $chatPage = $('.chat.page'); // The chatroom page
 
@@ -28,11 +27,12 @@ $(function () {
     const addParticipantsMessage = (data) => {
         var message = "";
         if (data.numUsers === 1) {
-            message += "there's 1 user online";
+            message += "There is 1 user online";
         } else {
-            message += "there are " + data.numUsers + " user's online";
+            message += "There are " + data.numUsers + " user's online";
         }
         log(message);
+        
     }
 
     // Sets the client's username
@@ -66,6 +66,7 @@ $(function () {
             // tell server to execute 'new message' and send along one parameter
             socket.emit("new message", message);
         }
+        console.log(message);
     }
 
     // Log a message
