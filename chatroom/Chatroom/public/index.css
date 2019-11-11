@@ -33,10 +33,10 @@ ul {
     word-wrap: break-word;
 }
 
-/* Display-area */
+/* display-area */
 /* .display-area {
-    height: 50px;
-    width: 50px;
+    height: 200px;
+    width: 200px;
 } */
 
 
@@ -98,6 +98,8 @@ ul {
 /* Chat page */
 .chat.page {
     display: none;
+    border-style: solid;
+    border-radius: 10px;
 }
 
 
