@@ -5,11 +5,14 @@ var path = require("path");
 var http = require("http").createServer(app); // or ("http").Server(app);
 var fs = require("fs"); // ? Not sure if needed
 var io = require("socket.io")(http); // Can be either http, server
-// if above doesnt work use this ↓ (Used for Heroku)
+//* If above doesnt work use this ↓ (Used for Heroku)
 // var server = require("http").createServer(app);
 // var io = require("socket.io").listen(server);
 
 var PORT = process.env.PORT || 3000;
+
+// Static directory to be served
+app.use(express.static(path.join(__dirname, "public")));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({
@@ -17,11 +20,18 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-// Static directory to be served
-app.use(express.static(path.join(__dirname, "public")));
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-// Routing
-require("./routes/api-routes.js")(app);
+// Import routes and give the server access to them.
+// TODO rename location of controller
+// var routes = require("./controllers/chatController.js"); 
+
+// Import routes and give the server access to them.
+// require("./routes/api-routes.js")(app);
+// app.use(routes);
 
 // Chatroom
 var numUsers = 0;
