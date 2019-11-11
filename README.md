@@ -10,6 +10,7 @@ The project will be a realtime multimedia communication web application.
 * [Node.js](https://nodejs.org/en/) JavaScript runtime environment
 * [Express.js](https://expressjs.com/) Node.js application framework
 * [D3.js](https://d3js.org/) data visualizations
+* [SVG](https://www.w3.org/Graphics/SVG/) graphics format for D3
 * [WebRTC](https://webrtc.org/) realtime communication API
 * [Socket.io](https://socket.io/) realtime bidirectional communication
 * [drawing TBD]() drawing
