@@ -1,11 +1,11 @@
 DROP DATABASE IF EXISTS chatroom_db;
 CREATE DATABASE chatroom_db;
-USE chat_logs;
+USE chatroom_db;
 
 
-CREATE TABLE chat_logs (
+CREATE TABLE chat (
   id INT NOT NULL AUTO_INCREMENT,
-  user_name VARCHAR(255) NOT NULL,
-  messages VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  msg VARCHAR(255) NOT NULL,
   PRIMARY KEY(id)
 );
