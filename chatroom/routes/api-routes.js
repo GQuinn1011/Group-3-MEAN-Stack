@@ -16,11 +16,11 @@ module.exports = function (app) {
     // Add a chat
     app.post("/api/new", function (req, res) {
         console.log("Chat Data:");
-        console.log(req.body);
+        console.log(req.socket);
 
         var dbQuery = "INSERT INTO chat (username, msg) VALUES (?,?)";
 
-        connection.query(dbQuery, [req.body.username, req.body.msg], function (err, result) {
+        connection.query(dbQuery, [req.socket.username, req.socket.msg], function (err, result) {
             if (err) throw err;
             console.log("Chat Log Successfully Saved!");
             res.end();

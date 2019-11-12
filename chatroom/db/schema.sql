@@ -9,3 +9,5 @@ CREATE TABLE chat (
   msg VARCHAR(255) NOT NULL,
   PRIMARY KEY(id)
 );
+
+INSERT INTO chat (username, msg) VALUES ("User One", "hello");

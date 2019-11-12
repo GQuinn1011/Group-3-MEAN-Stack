@@ -9,7 +9,7 @@
   "keywords": [
     "chatroom"
   ],
-  "author": "",
+  "author": "Ben Diamond",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
