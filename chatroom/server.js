@@ -22,16 +22,17 @@ app.use(express.json());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-// TODO rename location of controller
-// var routes = require("./controllers/chatController.js"); 
+var routes = require("./controllers/chatController.js");
 
 // Import routes and give the server access to them.
-// require("./routes/api-routes.js")(app);
-// app.use(routes);
+require("./routes/api-routes.js")(app);
+app.use(routes);
 
 // Chatroom
 var numUsers = 0;
